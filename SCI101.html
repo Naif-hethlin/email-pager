@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مرحباً بك في الدورة</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Let clients support both; we will "lock" key brand areas manually -->
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
+
+    <style>
+        /* Resets */
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        body {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media only screen and (max-width:480px) {
+            .container {
+                width: 100% !important;
+            }
+
+            .mobile-padding {
+                padding: 20px !important;
+            }
+
+            .header-title {
+                font-size: 22px !important;
+            }
+
+            .h1 {
+                font-size: 24px !important;
+            }
+
+            .text {
+                font-size: 14px !important;
+            }
+
+            .btn a {
+                padding: 10px 14px !important;
+            }
+        }
+
+        /* ===== Brand Lock Helpers ===== */
+        .lock-green-bg {
+            background-color: #1E6649 !important;
+            background-image: linear-gradient(#1E6649, #1E6649) !important;
+            /* helps some clients resist inversion */
+        }
+
+        .lock-white-text {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            text-shadow: 0 0 0 #FFFFFF !important;
+        }
+
+        .lock-green-text {
+            color: #1E6649 !important;
+            -webkit-text-fill-color: #1E6649 !important;
+            text-shadow: 0 0 0 #1E6649 !important;
+        }
+
+        /* Some Gmail iOS/Android clients react better to this selector */
+        u+.body .lock-green-bg {
+            background-color: #1E6649 !important;
+            background-image: linear-gradient(#1E6649, #1E6649) !important;
+        }
+
+        u+.body .lock-white-text {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            text-shadow: 0 0 0 #FFFFFF !important;
+        }
+
+        u+.body .lock-green-text {
+            color: #1E6649 !important;
+            -webkit-text-fill-color: #1E6649 !important;
+            text-shadow: 0 0 0 #1E6649 !important;
+        }
+
+        /* Dark mode overrides (where respected) */
+        @media (prefers-color-scheme: dark) {
+            .lock-green-bg {
+                background-color: #1E6649 !important;
+                background-image: linear-gradient(#1E6649, #1E6649) !important;
+            }
+
+            .lock-white-text {
+                color: #FFFFFF !important;
+                -webkit-text-fill-color: #FFFFFF !important;
+                text-shadow: 0 0 0 #FFFFFF !important;
+            }
+
+            .lock-green-text {
+                color: #1E6649 !important;
+                -webkit-text-fill-color: #1E6649 !important;
+                text-shadow: 0 0 0 #1E6649 !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="body"
+    style="margin:0; padding:0; font-family:'IBM Plex Sans Arabic','Segoe UI',Tahoma,Arial,sans-serif; line-height:1.5; direction:rtl; text-align:right;">
+
+    <!-- Main Wrapper (background can follow user) -->
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="direction:rtl;">
+        <tr>
+            <td align="center" style="padding:40px 20px;">
+
+                <!-- Email Container -->
+                <table role="presentation" class="container" width="100%" cellspacing="0" cellpadding="0" border="0"
+                    style="max-width:600px; background-color:#FFFFFF; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+
+                    <!-- Header (Green locked) -->
+                    <tr>
+                        <td class="mobile-padding lock-green-bg" bgcolor="#1E6649"
+                            style="padding:32px; text-align:center;">
+
+                            <img src="https://i.postimg.cc/LRsDbhk8/Qimah-Logo-ALLWhite.png" alt="Qimah" width="130"
+                                style="display:block; margin:0 auto 18px auto; max-width:100%;" />
+
+                            <div class="lock-white-text" style="font-size:15px; font-weight:700; margin-bottom:8px;">
+                                تم تأكيد تسجيلك بنجاح
+                            </div>
+
+                            <div class="header-title lock-white-text"
+                                style="font-size:24px; font-weight:800; letter-spacing:-0.3px;">
+                                مرحبا فيك في {{ $json.course_code }}
+                            </div>
+
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td class="mobile-padding" style="padding:32px;">
+
+                            <!-- Title (must be green) -->
+                            <div class="h1 lock-green-text" style="margin:0 0 12px 0; font-size:28px; font-weight:800;">
+                                يا هلا بالطموح 👋
+                            </div>
+
+                            <p class="text" style="margin:0 0 24px 0; font-size:16px; color:#868686; line-height:1.7;">
+                                مبروك انضمامك لـ
+                                <strong class="lock-green-text">{{ $json.course_code }}</strong>
+                                مع
+                                <strong class="lock-green-text">قــــمه</strong>.<br>
+                                هذا الإيميل هو دليلك الأول عشان تبدأ وأنت فاهم كل شيء.
+                            </p>
+
+                            <!-- Section title -->
+                            <div
+                                style="margin:0 0 14px 0; font-size:20px; font-weight:800; color:#1E1E1E; border-bottom:2px solid #F3F3F3; padding-bottom:10px;">
+                                الدخول لموقع قمه
+                            </div>
+
+                            <!-- Card: Account -->
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
+                                style="margin:0 0 22px 0;">
+                                <tr>
+                                    <td
+                                        style="padding:16px; background-color:#FFFFFF; border:1px solid #DADADA; border-radius:12px;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                            border="0">
+                                            <tr>
+                                                <td width="50" valign="middle">
+                                                    <img src="https://i.postimg.cc/1Rfj9mfY/Qimah-Favicon.png"
+                                                        alt="Qimah" width="40" height="40"
+                                                        style="width:40px; height:40px; object-fit:contain; display:block;" />
+                                                </td>
+
+                                                <td valign="middle" style="padding-right:12px;">
+                                                    <div style="font-size:15px; font-weight:800; color:#1E1E1E;">
+                                                        حسابي في قمه
+                                                    </div>
+                                                    <div style="font-size:13px; color:#868686; margin-top:3px;">
+                                                        ادخل بنفس الإيميل اللي سجلت فيه
+                                                    </div>
+                                                </td>
+
+                                                <td align="left" valign="middle" width="130">
+
+                                                    <!-- Bulletproof Button -->
+                                                    <table role="presentation" class="btn" cellspacing="0"
+                                                        cellpadding="0" border="0" style="border-collapse:separate;">
+                                                        <tr>
+                                                            <td class="lock-green-bg" bgcolor="#1E6649"
+                                                                style="border-radius:999px; text-align:center; mso-padding-alt:10px 18px;">
+                                                                <a href="https://qimah.net/my-account"
+                                                                    class="lock-white-text"
+                                                                    style="display:inline-block; padding:10px 18px; font-size:13px; font-weight:800; border-radius:999px;">
+                                                                    دخول
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Section title -->
+                            <div
+                                style="margin:0 0 14px 0; font-size:20px; font-weight:800; color:#1E1E1E; border-bottom:2px solid #F3F3F3; padding-bottom:10px;">
+                                اهم القروبات
+                            </div>
+
+                            <!-- WhatsApp: Course Group -->
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
+                                style="margin:0 0 12px 0;">
+                                <tr>
+                                    <td
+                                        style="padding:16px; background-color:#FFFFFF; border:1px solid #DADADA; border-radius:12px;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                            border="0">
+                                            <tr>
+                                                <td width="50" valign="middle">
+                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/120px-WhatsApp.svg.png"
+                                                        alt="WhatsApp" width="32" height="32" style="display:block;" />
+                                                </td>
+
+                                                <td valign="middle" style="padding-right:12px;">
+                                                    <div style="font-size:15px; font-weight:800; color:#1E1E1E;">قروب
+                                                        الكورس</div>
+                                                    <div style="font-size:13px; color:#868686; margin-top:3px;">خلك قريب
+                                                        مع الطموحين الي حولك وشارح المادة</div>
+                                                </td>
+
+                                                <td align="left" valign="middle" width="130">
+                                                    <table role="presentation" class="btn" cellspacing="0"
+                                                        cellpadding="0" border="0" style="border-collapse:separate;">
+                                                        <tr>
+                                                            <td class="lock-green-bg" bgcolor="#1E6649"
+                                                                style="border-radius:999px; text-align:center; mso-padding-alt:10px 18px;">
+                                                                <a href="{{ $json.whatsapp_group_link }}"
+                                                                    class="lock-white-text"
+                                                                    style="display:inline-block; padding:10px 18px; font-size:13px; font-weight:800; border-radius:999px;">
+                                                                    انضم الآن
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- WhatsApp: Community Hub -->
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
+                                style="margin:0 0 12px 0;">
+                                <tr>
+                                    <td
+                                        style="padding:16px; background-color:#FFFFFF; border:1px solid #DADADA; border-radius:12px;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                            border="0">
+                                            <tr>
+                                                <td width="50" valign="middle">
+                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/120px-WhatsApp.svg.png"
+                                                        alt="WhatsApp" width="32" height="32" style="display:block;" />
+                                                </td>
+
+                                                <td valign="middle" style="padding-right:12px;">
+                                                    <div style="font-size:15px; font-weight:800; color:#1E1E1E;">قروب
+                                                        مجتمع قمة العام</div>
+                                                    <div style="font-size:13px; color:#868686; margin-top:3px;">بيئتك
+                                                        المحفزة لتبادل الخبرات والاستفادة من النخبة</div>
+                                                </td>
+
+                                                <td align="left" valign="middle" width="130">
+                                                    <table role="presentation" class="btn" cellspacing="0"
+                                                        cellpadding="0" border="0" style="border-collapse:separate;">
+                                                        <tr>
+                                                            <td class="lock-green-bg" bgcolor="#1E6649"
+                                                                style="border-radius:999px; text-align:center; mso-padding-alt:10px 18px;">
+                                                                <a href="https://chat.whatsapp.com/LqauzsmROnIHB2mn2ljeXL"
+                                                                    class="lock-white-text"
+                                                                    style="display:inline-block; padding:10px 18px; font-size:13px; font-weight:800; border-radius:999px;">
+                                                                    انضم الآن
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+
+                            <!-- Discord -->
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
+                                style="margin:0 0 24px 0;">
+                                <tr>
+                                    <td
+                                        style="padding:16px; background-color:#FFFFFF; border:1px solid #DADADA; border-radius:12px;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                            border="0">
+                                            <tr>
+                                                <td width="50" valign="middle">
+                                                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png"
+                                                        alt="Discord" width="40" height="40"
+                                                        style="display:block; border-radius:8px;" />
+                                                </td>
+
+                                                <td valign="middle" style="padding-right:12px;">
+                                                    <div style="font-size:15px; font-weight:800; color:#1E1E1E;">مجتمع
+                                                        دسكورد قمة</div>
+                                                    <div style="font-size:13px; color:#868686; margin-top:3px;">شروحات
+                                                        حصرية وساعات مكتبية</div>
+                                                </td>
+
+                                                <td align="left" valign="middle" width="130">
+                                                    <table role="presentation" class="btn" cellspacing="0"
+                                                        cellpadding="0" border="0" style="border-collapse:separate;">
+                                                        <tr>
+                                                            <td class="lock-green-bg" bgcolor="#1E6649"
+                                                                style="border-radius:999px; text-align:center; mso-padding-alt:10px 18px;">
+                                                                <a href="https://discord.gg/WRWEHjAT85"
+                                                                    class="lock-white-text"
+                                                                    style="display:inline-block; padding:10px 18px; font-size:13px; font-weight:800; border-radius:999px;">
+                                                                    انضم الآن
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Files -->
+                            <div
+                                style="margin:0 0 14px 0; font-size:20px; font-weight:800; color:#1E1E1E; border-bottom:2px solid #F3F3F3; padding-bottom:10px;">
+                                ملفات مهمة
+                            </div>
+
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
+                                style="margin:0 0 14px 0;">
+                                <tr>
+                                    <td
+                                        style="padding:16px; background-color:#FFFFFF; border:1px solid #DADADA; border-radius:12px;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                            border="0">
+                                            <tr>
+                                                <td width="50" valign="middle">
+                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/120px-Google_Drive_icon_%282020%29.svg.png"
+                                                        alt="Drive" width="40" height="40" style="display:block;" />
+                                                </td>
+
+                                                <td valign="middle" style="padding-right:12px;">
+                                                    <div style="font-size:15px; font-weight:800; color:#1E1E1E;">
+                                                        اختبارات سابقة للمادة</div>
+                                                    <div style="font-size:13px; color:#868686; margin-top:3px;">يفتح فقط
+                                                        مع إيميلات Gmail أو PSU
+                                                    </div>
+                                                </td>
+
+                                                <td align="left" valign="middle" width="130">
+                                                    <table role="presentation" class="btn" cellspacing="0"
+                                                        cellpadding="0" border="0" style="border-collapse:separate;">
+                                                        <tr>
+                                                            <td class="lock-green-bg" bgcolor="#1E6649"
+                                                                style="border-radius:999px; text-align:center; mso-padding-alt:10px 18px;">
+                                                                <a href="https://drive.google.com/drive/u/0/folders/1B9_HMGvVHmoGxxojMVCuFVWtYbCinbX-"
+                                                                    class="lock-white-text"
+                                                                    style="display:inline-block; padding:10px 18px; font-size:13px; font-weight:800; border-radius:999px;">
+                                                                    فتح
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div
+                                style="background-color:#FFF4E5; border:1px solid #FFD8A8; border-radius:10px; padding:12px; font-size:13px; color:#663C00; margin:0 0 24px 0;">
+                                ⚠️ <strong>إيميلك غير مدعوم؟</strong> حدثه من هنا:
+                                <a href="https://qimah.net/my-account/edit-account/"
+                                    style="color:#663C00; text-decoration:underline;">
+                                    تحديث الإيميل
+                                </a>
+                            </div>
+
+                            <div
+                                style="margin:0 0 14px 0; font-size:20px; font-weight:800; color:#1E1E1E; border-bottom:2px solid #F3F3F3; padding-bottom:10px;">
+                                نقاط مهمه قبل تبدا الكورس
+                            </div>
+
+                            <div
+                                style="background-color:#FAFAFA; border:1px solid #EEEEEE; border-radius:12px; padding:20px;">
+                                <p style="margin:0 0 14px 0; font-size:15px; color:#1E1E1E; line-height:1.7;">
+                                    <strong>حياكم الله يالطموحين🤩</strong>
+                                    <br><br>
+                                    اتمنى لكم بداية سنة دراسية موفقة ومليئة بالإنجازات باذن الله💪<br>
+                                    جداً سعيدة باختياركم لقمة واختياركم لي للكورس هذا وباذن الله اكون قد الثقة💫<br><br>
+                                    الحمدلله الحين خلصنا اول اسبوع وان شاءالله الكل خلص جدوله وشاف الدكاتره واخذ فكرة عن
+                                    المادة عشان نبدا بداية جيدة للترم
+                                </p>
+
+                                <div style="margin-bottom:14px;">
+                                    <div class="lock-green-text"
+                                        style="font-size:16px; font-weight:800; margin-bottom:6px;">
+                                        اولاً نصيحتي لكم:
+                                    </div>
+                                    <div style="font-size:14px; color:#555; line-height:1.6;">
+                                        في هذا الكورس، لا تشيلون هم، اذا شلتوا هم راحت نص المتعه. المادة ممتعة جداً جداً
+                                        وتعتبر مقدمة للفيزياء مو متعمق مره فقط تاسيس وترتيب افكار واغلبها اشياء قد مرت
+                                        علينا. 🧪
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:14px;">
+                                    <div class="lock-green-text"
+                                        style="font-size:16px; font-weight:800; margin-bottom:6px;">
+                                        ثاني شي - الفهم ثم الفهم:
+                                    </div>
+                                    <div style="font-size:14px; color:#555; line-height:1.6;">
+                                        الفهم ثم الفهم ثم الفهم. لا تحفظون ابداً ولا تطلعون من اي فيديو او كلاس الا
+                                        وانتوا حافظين هذا الي راح يفرق معاكم. وانا حاولت قد ما اقدر اني اشرح كل فكره
+                                        بالتفصيل مع امثلة من الحياة الواقعية عشان تثبت المعلومة وما ننساها. ✨
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:14px;">
+                                    <div class="lock-green-text"
+                                        style="font-size:16px; font-weight:800; margin-bottom:6px;">
+                                        ثالث شي - التدريب والمراجعة:
+                                    </div>
+                                    <div style="font-size:14px; color:#555; line-height:1.6;">
+                                        المادة بسيطة لكن ما ينفع نراكم لان ممكن تتلخبط علينا بعض الافكار لذلك كل
+                                        ماخلصتوا موضوع راجعوه كل فتره وفتره وتدربوا عليه وعلى الاسئلة الي تجي عليها📚
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:14px;">
+                                    <div class="lock-green-text"
+                                        style="font-size:16px; font-weight:800; margin-bottom:6px;">
+                                        النقطة الرابعة والاهم:
+                                    </div>
+                                    <div style="font-size:14px; color:#555; line-height:1.6;">
+                                        هذي الي انصح فيها لكل المواد سواء ساينس او غيره. بما انكم عندكم محتوى الكورس
+                                        كامل متوفر، شوفوا الدرس وادرسوه قبل لا تاخذونه مع الدكتوره او الدكتور. كيف؟ ليش؟
+                                        <br><br>
+                                        مثلاً انتم بكره بتاخذون قانون نيوتن الاول، اليوم افتحوا المقطع وافتحوا السلايد
+                                        وشوفوه كامل واكتبوا نوتس وافهموا الفكره كاااملة. اليوم الثاني تروحون للكلاس راح
+                                        تاخذون المعلومة مره ثانية من مصدر ثاني وبطريقة مختلفة وبأمثلة مختلفة.<br>
+                                        <strong>وبكذا تكون:</strong><br>
+                                        ١- ثبتت المعلومة بمخك لانها مرت عليك اكثر من مره.<br>
+                                        ٢- ماضيعت وقتك بالكلاس بحيث تكون فعلاً مركز وفاهم ايش الي قاعد ينشرح بدال ما
+                                        تكون ضايع وترجع للبيت وتشوف الشرح او تتراكم عليك وتضيع<br>
+                                        ٣- مشاركتك في الكلاس راح تفرق وتزيد وهذا شي لصالحك<br>
+                                        ٤- هالطريقة بتساعد ماتراكم وتكون up to date في المحتوى وفعلاً بتكون مستمتع
+                                        بالكورس 💯
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:14px;">
+                                    <div class="lock-green-text"
+                                        style="font-size:16px; font-weight:800; margin-bottom:6px;">
+                                        ختاماً:
+                                    </div>
+                                    <div style="font-size:14px; color:#555; line-height:1.6;">
+                                        بالأخير اتمنى اتمنى لو عندكم اي ملاحظات على الكورس سواء كانت شي ناقص، شي يحتاج
+                                        شرح اكثر، شي مو مره مفهوم، اختلاف او زياده في المنهج او اي استفسار اي سؤال ابداً
+                                        ابداً لا تترددون، جداً يهمني جودة الكورس ويهمني تكونون راضين اتم الرضى.
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:14px;">
+                                    <div class="lock-green-text"
+                                        style="font-size:16px; font-weight:800; margin-bottom:6px;">
+                                        نصيحتي الاخيرة:
+                                    </div>
+                                    <div style="font-size:14px; color:#555; line-height:1.6;">
+                                        اي سؤال عندكم او اي شي فادكم بخصوص الكورس استغلوا وجود هذا القروب وارسلوا فيه،
+                                        ليه؟<br>
+                                        ١- لمن ترسلون اسئلتكم هنا، ممكن يكون فيه احد ثاني عنده نفس السؤال واصير جاوبت
+                                        عليكم كلكم<br>
+                                        ٢- ممكن باقي الزملاء يساعدونكم لو مارديت انا في لحظتها<br>
+                                        ٣- الطالب الي يرد على اسئلة الطلاب مو بس يساعد الطالب السائل لكن يساعد نفسه في
+                                        الفهم والتعمق بالكورس وتثبيت المعلومة اكثر.
+                                        <br><br>
+                                        <strong>وبكذا تكون الفائدة توصل للجميع 🙏🏼</strong>
+                                    </div>
+                                </div>
+
+                                <div style="font-size:16px; color:#1E1E1E; font-weight:700; margin-top:20px;">
+                                    اتمنى لكم كل التوفيق يارب انتم قدها بإذن الله 💪
+                                </div>
+                            </div>
+
+                            <!-- Order details -->
+                            <div
+                                style="margin-top:24px; border:1px solid #EEEEEE; border-radius:12px; overflow:hidden;">
+                                <div style="padding:12px 16px; border-bottom:1px solid #F5F5F5;">
+                                    <div class="lock-green-text" style="font-size:14px; font-weight:800;">
+                                        تفاصيل الطلب
+                                    </div>
+                                </div>
+                                <div style="padding:16px;">
+                                    <div style="font-size:14px; color:#555; margin-bottom:8px;">
+                                        <strong style="color:#1E1E1E;">الاسم:</strong> {{ $json.first_name }} {{
+                                        $json.last_name }}
+                                    </div>
+                                    <div style="font-size:14px; color:#555; margin-bottom:8px;">
+                                        <strong style="color:#1E1E1E;">البريد:</strong>
+                                        <a href="mailto:{{ $json.email }}" style="color:#4285F4; text-decoration:none;">
+                                            {{ $json.email }}
+                                        </a>
+                                    </div>
+                                    <div style="font-size:14px; color:#555;">
+                                        <strong style="color:#1E1E1E;">رقم الطلب:</strong> {{ $json.order_id }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top:20px;">
+                                <div style="font-size:16px; font-weight:800; color:#1E1E1E;">
+                                    بالتوفيق يالطموح
+                                </div>
+                                <div class="lock-green-text" style="font-size:16px; font-weight:800; margin-top:4px;">
+                                    &mdash; فريق قِمّة
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer (green locked + white text) -->
+                    <tr>
+                        <td class="lock-green-bg" bgcolor="#1E6649" style="padding:24px; text-align:center;">
+                            <div class="lock-white-text" style="font-size:12px; opacity:0.9; line-height:1.7;">
+                                هذه رسالة تلقائية خاصة بتأكيد التسجيل.<br />
+                                Qimah 2025 &copy;
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+                <!-- /Container -->
+
+                <div style="height:28px; font-size:1px; line-height:1px;">&nbsp;</div>
+
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
